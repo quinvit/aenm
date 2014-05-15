@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title>Store procedures by issue widgets</title>
+		
+		<link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/javascripts/jquery-handsontable/dist/jquery.handsontable.full.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/javascripts/jquery-handsontable/extensions/jquery.handsontable.bootstrap.css" />
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="/assets/javascripts/jquery-handsontable/dist/jquery.handsontable.full.js"></script>
+		<script src="/assets/javascripts/bootstrap.min.js"></script>
+		<script src="/assets/javascripts/underscore-min.js"></script>
+
+		<style>
+			div.htAutocompleteArrow
+			{
+				display: none;
+			}
+		</style>
+
+	</head>
+	<body scroll="no" style="overflow: hidden">
+		
+		<div id="storeprocedures">&nbsp;</div>	
+		<script src="/widgets/javascripts/storeprocedure.js"></script>
+
+		<script>
+			var max_widget_height = 900;
+			adaptSize = _.debounce(function() {
+				var new_height = $( window ).height();				
+				new_height = (new_height > max_widget_height) ? max_widget_height : new_height;				
+				if(new_height > max_widget_height) {
+					$(document.body).css("padding", "5px");
+				}
+				else {
+					$(document.body).css("padding", "0px");
+				}
+				
+				storeprocedure.config({
+					selectLimit: (new_height > 300) ? 20 : 10
+				});
+				
+				$("#storeprocedures").height((new_height - 10) + "px");				
+				$("#storeprocedures").handsontable("render");
+				$("#storeprocedures").handsontable("selectCell", 0, 0);							
+				
+			}, 100);
+			
+			$(window).resize(function(){
+				adaptSize();
+			});
+			
+			$(document).ready(function(){
+				adaptSize();
+				storeprocedure.load();
+			});	
+			
+		</script>
+		
+	</body>
+	
+</html>
