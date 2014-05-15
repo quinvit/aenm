@@ -7,7 +7,8 @@ var express = require('express'),
 			  https = require('https'),
 			  fs = require('fs'),
 			  mysql = require('mysql'),
-			  validators = require('express-validator/node_modules/validator/lib/validators'),
+			  compress = require('compression'),
+			  bodyParser = require('body-parser'),
 			  expressValidator = require('express-validator'),
 			  sass = require('node-sass'),
               NodeCache = require("node-cache");
@@ -22,22 +23,19 @@ var https_options = {
 
 var app = express();
 
-app.use(express.compress());
-app.use(express.bodyParser());
+app.use(compress());
+app.use(bodyParser());
 app.use(expressValidator());
 
 app.use(sass.middleware({
     src: __dirname + '/public',
     dest: __dirname + '/public',
-    debug: true
+    debug: false
 }));
 
 app.use(express.static(__dirname + '/public'));
 
-
-
 app.util = util;
-app.validators = validators;
 app.cache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
 
 // Index host
@@ -46,14 +44,10 @@ app.get('/', function(req, res){
 });
 
 // Routing api
-require('./api/spm_databases')(app);
-require('./api/spm_users')(app);
-require('./api/spm_servers')(app);
-require('./api/spm_favourites_issues')(app);
-require('./api/spm_storeprocedures')(app);
+require('./api/users')(app);
+
 
 // Rounting widgets
-require('./widgets/issue_storeprocedure')(app);
 
 // Start application
 var server = https.createServer(https_options, app).listen(3000);
