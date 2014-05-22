@@ -4,35 +4,44 @@
 
 var express = require('express'),
 			  util = require('util'),
+			  http = require('http'),
 			  https = require('https'),
 			  fs = require('fs'),
 			  mysql = require('mysql'),
-			  compress = require('compression'),
+			  gzippo  = require('gzippo'),
+			  lessMiddleware = require('less-middleware'),
 			  bodyParser = require('body-parser'),
 			  expressValidator = require('express-validator'),
 			  sass = require('node-sass'),
               NodeCache = require("node-cache");
 			  
-var key = fs.readFileSync('./ssl/server.key');
-var cert = fs.readFileSync('./ssl/server.crt');
-
-var https_options = {
-  key: key,
-  cert: cert
+const HTTPS_CONFIG = {
+  key: fs.readFileSync('./ssl/server.key'),
+  cert: fs.readFileSync('./ssl/server.crt')
 };
-
+			  
+			  
 var app = express();
 
-app.use(compress());
+// gzip
+app.use(gzippo.staticGzip(__dirname + '/public'));
+app.use(gzippo.compress());
+
+// parser & validator
 app.use(bodyParser());
 app.use(expressValidator());
 
+// sass
 app.use(sass.middleware({
     src: __dirname + '/public',
     dest: __dirname + '/public',
     debug: false
 }));
 
+// less
+app.use(lessMiddleware(__dirname + '/public'));
+
+// static
 app.use(express.static(__dirname + '/public'));
 
 app.util = util;
@@ -47,8 +56,7 @@ app.get('/', function(req, res){
 require('./api/users')(app);
 
 
-// Rounting widgets
 
-// Start application
-var server = https.createServer(https_options, app).listen(3000);
-// app.listen(3000);
+// Start application http and https
+http.createServer(app).listen(3001);
+https.createServer(HTTPS_CONFIG, app).listen(3000);
