@@ -1,5 +1,5 @@
 /**
- * @author qui.nguyen
+ * @author qui.nguyen 2014
  */
 
 var express = require('express'),
@@ -7,12 +7,12 @@ var express = require('express'),
 			  http = require('http'),
 			  https = require('https'),
 			  fs = require('fs'),
-			  mysql = require('mysql'),
 			  gzippo  = require('gzippo'),
 			  lessMiddleware = require('less-middleware'),
 			  bodyParser = require('body-parser'),
 			  expressValidator = require('express-validator'),
 			  sass = require('node-sass'),
+			  _ = require('underscore'),
               NodeCache = require("node-cache");
 			  
 const HTTPS_CONFIG = {
@@ -20,7 +20,7 @@ const HTTPS_CONFIG = {
   cert: fs.readFileSync('./ssl/server.crt')
 };
 			  
-			  
+// Create node app
 var app = express();
 
 // gzip
@@ -46,6 +46,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.util = util;
 app.cache = new NodeCache({ stdTTL: 100, checkperiod: 120 });
+app._ = _;
 
 // Index host
 app.get('/', function(req, res){	
@@ -54,8 +55,6 @@ app.get('/', function(req, res){
 
 // Routing api
 require('./api/users')(app);
-
-
 
 // Start application http and https
 http.createServer(app).listen(3001);
