@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: aenm
+Bundle-SymbolicName: aenm
+Bundle-Version: 1.0.0.qualifier

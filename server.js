@@ -22,6 +22,10 @@ config = config[process.argv[2] || 'local'] || config.local;
 // Create node app
 var app = express();
 
+// view engine
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+
 // gzip
 app.use(gzippo.staticGzip(__dirname + '/public'));
 app.use(gzippo.compress());
@@ -51,14 +55,14 @@ app._ = _;
 // lib
 app.repository = require('./lib/repository');
 
-// Serve index.html as default document
-app.get('/', function(req, res){	
-	res.sendfile(__dirname + '/index.html');	
-});
-
 // Routing
 fs.readdirSync('./routes').forEach(function(file) {
   require('./routes/' + file)(app);
+});
+
+//Serve index.html as default document
+app.get('*', function(req, res){	
+	res.render('index');	
 });
 
 // Start application http and https
