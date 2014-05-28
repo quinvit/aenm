@@ -59,7 +59,7 @@ app.get('/', function(req, res){
 
 // Routing
 fs.readdirSync('./routes').forEach(function(file) {
-  require('./routes/' + file);
+  require('./routes/' + file)(app);
 });
 
 // Start application http and https
