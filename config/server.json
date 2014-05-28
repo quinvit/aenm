@@ -4,8 +4,8 @@
 		"http_port": 3000,
 		"https_port": 3001,
 		"ssl": {
-			"cert": "./ssl/server.crt",
-			"key": "./ssl/server.key"
+			"cert": "./certificate/server.crt",
+			"key": "./certificate/server.key"
 		}
 	},
 	"staging": {
@@ -13,8 +13,8 @@
 		"http_port": 80,
 		"https_port": 443,
 		"ssl": {
-			"cert": "./ssl/server.crt",
-			"key": "./ssl/server.key"
+			"cert": "./certificate/server.crt",
+			"key": "./certificate/server.key"
 		}		
 	},
 	"production": {
@@ -22,8 +22,8 @@
 		"http_port": 80,
 		"https_port": 443,
 		"ssl": {
-			"cert": "./ssl/server.crt",
-			"key": "./ssl/server.key"
+			"cert": "./certificate/server.crt",
+			"key": "./certificate/server.key"
 		}		
 	}
 }
