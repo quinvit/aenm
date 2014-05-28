@@ -13,12 +13,11 @@ var express = require('express'),
 			  expressValidator = require('express-validator'),
 			  sass = require('node-sass'),
 			  _ = require('underscore'),
-              NodeCache = require("node-cache");
-			  
-const HTTPS_CONFIG = {
-  key: fs.readFileSync('./ssl/server.key'),
-  cert: fs.readFileSync('./ssl/server.crt')
-};
+              NodeCache = require('node-cache');
+
+// Configuration, default - local mode
+var config = require('./config/server.json');
+config = config[process.argv[2] || 'local'] || config.local;
 			  
 // Create node app
 var app = express();
@@ -63,5 +62,11 @@ fs.readdirSync('./routes').forEach(function(file) {
 });
 
 // Start application http and https
-http.createServer(app).listen(3001);
-https.createServer(HTTPS_CONFIG, app).listen(3000);
+http.createServer(app).listen(config.http_port);
+https.createServer(
+	{
+		key: fs.readFileSync(config.ssl.key),
+		cert: fs.readFileSync(config.ssl.cert)
+	}, 
+	app
+).listen(config.https_port);

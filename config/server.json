@@ -1,0 +1,29 @@
+{
+	"local": {
+		"mode": "local",
+		"http_port": 3000,
+		"https_port": 3001,
+		"ssl": {
+			"cert": "./ssl/server.crt",
+			"key": "./ssl/server.key"
+		}
+	},
+	"staging": {
+		"mode": "staging",
+		"http_port": 80,
+		"https_port": 443,
+		"ssl": {
+			"cert": "./ssl/server.crt",
+			"key": "./ssl/server.key"
+		}		
+	},
+	"production": {
+		"mode": "production",
+		"http_port": 80,
+		"https_port": 443,
+		"ssl": {
+			"cert": "./ssl/server.crt",
+			"key": "./ssl/server.key"
+		}		
+	}
+}
