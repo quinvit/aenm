@@ -1,12 +1,14 @@
-var repository = require('../lib/repository');
+/*
+ Serve /users
+ * */
 
 module.exports = function(app){	
 	app.get('/users', function(req, res){
 		var result = {};
 		
-		repository.test();
-		
-		res.send(JSON.stringify(result), 200);
+		app.repository.test(function(err){
+			res.send(JSON.stringify(err || result), 200);
+		});		
 	});
 
 	app.delete('/users', function(req, res){

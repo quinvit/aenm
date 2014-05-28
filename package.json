@@ -1,0 +1,56 @@
+{
+  "name": "aenm",
+  "description": "Tracking service.",
+  "version": "0.0.1",
+  "author": {
+    "name": "quinvit",
+    "email": "quinvit@yahoo.com",
+    "url": "https://github.com/quinvit"
+  },
+  "contributors": [
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quinvit/aenm.git"
+  },
+  "dependencies": {
+    "body-parser": "1.2.1",
+    "compression": "1.0.2",
+    "express": "4.3.1",
+    "express-validator": "2.1.2",
+    "gzippo": "0.2.0",
+    "jade": "1.3.1",
+    "less": "1.7.0",
+    "less-middleware": "1.0.3",
+    "mongojs": "0.13.0",
+    "node-cache": "1.0.0",
+    "node-fs": "0.1.7",
+    "node-sass": "0.8.6",
+    "paralleljs": "0.2.1",
+    "socket.io": "1.0.0-pre5",
+    "underscore": "1.6.0",
+    "util": "0.13.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "should": "~3.3.1",
+    "supertest": "~0.12.1"
+  },
+  "engines": {
+    "node": ">= 0.8"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "readme": "",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/quinvit/aenm/issues"
+  },
+  "homepage": "https://github.com/quinvit/aenm",
+  "_id": "aenm@0.0.1",
+  "_shasum": "917beee34a88e9f0893728bf1a542121d7d1eb28",
+  "_from": "aenm@0.0.1",
+  "_resolved": ""
+}
