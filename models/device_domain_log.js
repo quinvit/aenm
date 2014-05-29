@@ -1,0 +1,1 @@
+// deviceId		referer_domain		domain	created_date
