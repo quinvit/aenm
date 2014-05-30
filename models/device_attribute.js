@@ -1,6 +1,6 @@
 // device_code	attribute_name	attribute_hash_value		created_date
 
-var device_attributes = function(){
+var device_attribute = function(){
 	this.device_code = arguments[0] || null;
 	this.attribute_name = arguments[1] || null;
 	this.attribute_hash_value = arguments[2] || null;

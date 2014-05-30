@@ -1,1 +1,0 @@
-// attribute_name attribute_hash_value	attribute_raw_value	created_date
