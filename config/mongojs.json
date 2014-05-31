@@ -1,3 +1,4 @@
 {
-	"uri": "mongodb://aenm:azura@ds033489.mongolab.com:33489/aenm"
+	"uri": "mongodb://aenm:azura@ds033489.mongolab.com:33489/aenm",
+	collections:["test", "devices", "device_attributes", "device_domain_logs", "device_ip_logs", "attribute_refs"]
 }
