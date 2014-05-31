@@ -7,7 +7,7 @@ var express = require('express'),
     http = require('http'),
     https = require('https'),
     fs = require('fs'),
-    gzippo  = require('gzippo'),
+    compress  = require('compression'),
     lessMiddleware = require('less-middleware'),
     bodyParser = require('body-parser'),
     expressValidator = require('express-validator'),
@@ -27,8 +27,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
 // gzip
-app.use(gzippo.staticGzip(__dirname + '/public'));
-app.use(gzippo.compress());
+app.use(compress());
 
 // parser & validator
 app.use(bodyParser());
@@ -66,12 +65,12 @@ app.get('/', function(req, res){
 });
 
 // Start application http and https
-http.createServer(app).listen(process.env.PORT || config.http_port);
+http.createServer(app).listen(process.env.PORT || config.http_port, process.env.IP || '127.0.0.1');
 config.enable_ssl && https.createServer(
 	{
 		key: fs.readFileSync(config.ssl.key),
 		cert: fs.readFileSync(config.ssl.cert)
 	}, 
 	app
-).listen(config.https_port);
+).listen(config.https_port, process.env.IP || '127.0.0.1');
 
