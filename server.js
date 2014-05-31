@@ -3,22 +3,22 @@
  */
 
 var express = require('express'),
-			  util = require('util'),
-			  http = require('http'),
-			  https = require('https'),
-			  fs = require('fs'),
-			  gzippo  = require('gzippo'),
-			  lessMiddleware = require('less-middleware'),
-			  bodyParser = require('body-parser'),
-			  expressValidator = require('express-validator'),
-			  sass = require('node-sass'),
-			  _ = require('underscore'),
-              NodeCache = require('node-cache');
+    util = require('util'),
+    http = require('http'),
+    https = require('https'),
+    fs = require('fs'),
+    gzippo  = require('gzippo'),
+    lessMiddleware = require('less-middleware'),
+    bodyParser = require('body-parser'),
+    expressValidator = require('express-validator'),
+    sass = require('node-sass'),
+     _ = require('underscore'),
+    NodeCache = require('node-cache');
 
 // Configuration, default - local mode
 var config = require('./config/server.json');
 config = config[process.argv[2] || 'local'] || config.local;
-			  
+
 // Create node app
 var app = express();
 
@@ -61,16 +61,17 @@ fs.readdirSync('./routes').forEach(function(file) {
 });
 
 //Serve index.html as default document
-app.get('*', function(req, res){	
+app.get('/', function(req, res){	
 	res.render('index');	
 });
 
 // Start application http and https
-http.createServer(app).listen(config.http_port);
-https.createServer(
+http.createServer(app).listen(process.env.PORT || config.http_port);
+config.enable_ssl && https.createServer(
 	{
 		key: fs.readFileSync(config.ssl.key),
 		cert: fs.readFileSync(config.ssl.cert)
 	}, 
 	app
 ).listen(config.https_port);
+
