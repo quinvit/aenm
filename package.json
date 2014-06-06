@@ -15,27 +15,29 @@
     "url": "https://github.com/quinvit/aenm.git"
   },
   "dependencies": {
-    "body-parser": "1.2.1",
-    "compression": "1.0.2",
-    "express": "4.3.1",
-    "express-validator": "2.1.2",
-    "gzippo": "0.2.0",
-    "jade": "1.3.1",
-    "less": "1.7.0",
-    "less-middleware": "1.0.3",
-    "mongojs": "0.13.0",
-    "node-cache": "1.0.0",
-    "node-fs": "0.1.7",
-    "node-sass": "0.8.6",
-    "paralleljs": "0.2.1",
+    "body-parser": "1.2.x",
+    "compression": "1.0.x",
+    "express": "4.3.x",
+    "express-validator": "2.1.x",
+    "gzippo": "0.2.x",
+    "jade": "1.3.x",
+    "less": "1.7.x",
+    "less-middleware": "1.0.x",
+    "mongojs": "0.13.x",
+    "node-cache": "1.0.x",
+    "node-fs": "0.1.x",
+    "node-sass": "0.8.x",
+    "paralleljs": "0.2.x",
     "socket.io": "1.0.0-pre5",
-    "underscore": "1.6.0",
-    "util": "0.10.3"
+    "underscore": "1.6.x",
+    "node-persist": "0.0.x",
+    "redis": "0.10.x",
+    "uglify-js": "2.4.x"
   },
   "devDependencies": {
-    "mocha": "~1.18.2",
-    "should": "~3.3.1",
-    "supertest": "~0.12.1"
+    "mocha": "~1.18.x",
+    "should": "~3.3.x",
+    "supertest": "~0.12.x"
   },
   "engines": {
     "node": ">= 0.8"
@@ -50,7 +52,7 @@
   },
   "homepage": "https://github.com/quinvit/aenm",
   "_id": "aenm@0.0.1",
-  "_shasum": "917bedee4a88e9f0593f28bf1a542c21d7314b28",
+  "_shasum": "917bedee4a88e9f05a3f28bfea542c21d7d14b28",
   "_from": "aenm@0.0.1",
   "_resolved": ""
 }
