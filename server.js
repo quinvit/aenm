@@ -13,6 +13,7 @@ var express = require('express'),
     expressValidator = require('express-validator'),
     sass = require('node-sass'),
      _ = require('underscore'),
+     redis_client = require('redis-client-manager'),
     NodeCache = require('node-cache');
 
 // Configuration, default - local mode
