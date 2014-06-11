@@ -1,0 +1,22 @@
+{
+  "name": "aenm",
+  "version": "0.0.1",
+  "homepage": "https://github.com/quinvit/aenm",
+  "authors": [
+    "quinvit@yahoo.com"
+  ],
+  "description": "Tracking service",
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
