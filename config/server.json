@@ -2,7 +2,7 @@
 	"local": {
 		"mode": "local",
 		"enable_ssl": false,
-		"http_port": 80,
+		"http_port": 801,
 		"https_port": 443,
 		"ssl": {
 			"cert": "./certificate/server.crt",
@@ -12,7 +12,7 @@
 	"staging": {
 		"mode": "staging",
 		"enable_ssl": false,
-		"http_port": 80,
+		"http_port": 801,
 		"https_port": 443,
 		"ssl": {
 			"cert": "./certificate/server.crt",
@@ -22,7 +22,7 @@
 	"production": {
 		"mode": "production",
 		"enable_ssl": true,
-		"http_port": 80,
+		"http_port": 801,
 		"https_port": 443,
 		"ssl": {
 			"cert": "./certificate/server.crt",
