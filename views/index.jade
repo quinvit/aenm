@@ -3,6 +3,7 @@ html(lang="en")
 	head
 		meta(charset='utf-8')
 		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		title=api
 		meta(name='author', content='qui.nguyen')
 		meta(name='description', content='')
@@ -10,13 +11,17 @@ html(lang="en")
 		link(rel='shortcut icon', href='/favicon.ico')
 		link(rel='stylesheet', href='assets/stylesheets/main.css')
 		link(rel='stylesheet', href='assets/stylesheets/header.css')
-		
-		link(rel='stylesheet', href='bower_components/bootstrap/bootstrap.min.css')
-		script(src='bower_components/bootstrap/bootstrap.min.js')
+
+		link(rel='stylesheet', href='assets/bootstrap/bootstrap.min.css')
+		script(src='http://code.jquery.com/jquery.min.js')
+		script(src='assets/bootstrap/bootstrap.min.js')
 	body
 		div
+			div(class='navbar navbar-fixed-top')
+				div(class='navbar-inner')
+					div.container
 			header(id='#header')
-				h1 aenm service - under construction 
+				h1 aenm service - under construction
 			nav
 				p
 			div
